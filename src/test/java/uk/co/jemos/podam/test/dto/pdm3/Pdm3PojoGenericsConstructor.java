@@ -5,10 +5,19 @@ import java.util.List;
 /**
  * Pojo to test <a href="https://agileguru.atlassian.net/browse/PDM-3">PDM-3</a>
  * 
- * @author Marco Tedone
+ * @author daivanov
  * 
  */
-public class Pdm3Pojo {
+public class Pdm3PojoGenericsConstructor {
+
+	public Pdm3PojoGenericsConstructor(
+			List<?> something,
+			List<? extends RuntimeException> descendants,
+			List<? super NullPointerException> ancestors) {
+		this.something = something;
+		this.descendants = descendants;
+		this.ancestors = ancestors;
+	}
 
 	private List<?> something;
 
@@ -20,24 +29,12 @@ public class Pdm3Pojo {
 		return something;
 	}
 
-	public void setSomething(List<?> something) {
-		this.something = something;
-	}
-
 	public List<? extends RuntimeException> getDescendants() {
 		return descendants;
 	}
 
-	public void setDescendants(List<? extends RuntimeException> descendants) {
-		this.descendants = descendants;
-	}
-
 	public List<? super NullPointerException> getAncestors() {
 		return ancestors;
-	}
-
-	public void setAncestors(List<? super NullPointerException> ancestors) {
-		this.ancestors = ancestors;
 	}
 
 	@Override
